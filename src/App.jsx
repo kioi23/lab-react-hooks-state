@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { sampleProducts } from "./data";
 import ProductList from "./components/ProductList";
 import DarkModeToggle from "./components/DarkModeToggle";
 import Cart from "./components/Cart";
 
 function App() {
-
   // Dark mode state
   const [darkMode, setDarkMode] = useState(false);
 
@@ -14,36 +14,30 @@ function App() {
   // Category state
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // Product data
-  const sampleProducts = [
-  { id: 1, name: "Milk", category: "Dairy" },
-  { id: 2, name: "Bread", category: "Bakery" },
-  { id: 3, name: "Cheese", category: "Dairy" },
-  { id: 4, name: "Apple", category: "Fruits" }
-];
-
   // Add to cart function
   function handleAddToCart(product) {
-    setCartItems([...cartItems, product]);
+    setCartItems((prevItems) => [...prevItems, product]);
   }
 
   // Filter products
   const filteredProducts =
-  selectedCategory === "All"
-    ? sampleProducts
-    : sampleProducts.filter(
-        (product) => product.category === selectedCategory
-      );
+    selectedCategory === "All"
+      ? sampleProducts
+      : sampleProducts.filter(
+          (product) => product.category === selectedCategory
+        );
 
   return (
     <div className={darkMode ? "dark" : "light"}>
-
+      {/* Dark mode toggle */}
       <DarkModeToggle
         darkMode={darkMode}
         setDarkMode={setDarkMode}
       />
 
+      {/* Category filter dropdown */}
       <select
+        role="combobox"
         onChange={(e) => setSelectedCategory(e.target.value)}
       >
         <option value="All">All</option>
@@ -52,13 +46,14 @@ function App() {
         <option value="Fruits">Fruits</option>
       </select>
 
+      {/* Product list */}
       <ProductList
-  products={filteredProducts}
-  onAddToCart={handleAddToCart}
-/>
+        products={filteredProducts}
+        onAddToCart={handleAddToCart}
+      />
 
+      {/* Cart */}
       <Cart cartItems={cartItems} />
-
     </div>
   );
 }

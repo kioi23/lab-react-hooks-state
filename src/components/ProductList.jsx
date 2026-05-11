@@ -1,10 +1,10 @@
+import React from "react";
 import ProductCard from "./ProductCard";
 
-function ProductList({ products, handleAddToCart }) {
-
+function ProductList({ products, onAddToCart }) {
   if (products.length === 0) {
-    return <p>No products available</p>;
-  }
+  return <p>No products available</p>;
+}
 
   return (
     <div>
@@ -12,7 +12,7 @@ function ProductList({ products, handleAddToCart }) {
         <ProductCard
           key={product.id}
           product={product}
-          handleAddToCart={handleAddToCart}
+          handleAddToCart={onAddToCart}
         />
       ))}
     </div>
