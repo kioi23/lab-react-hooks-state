@@ -19,7 +19,7 @@ function App() {
     { id: 1, name: "Milk", category: "Dairy" },
     { id: 2, name: "Bread", category: "Bakery" },
     { id: 3, name: "Cheese", category: "Dairy" },
-    { id: 4, name: "Apple", category: "Fruit" }
+    { id: 4, name: "Apple", category: "Fruits" }
   ];
 
   // Add to cart function
@@ -49,7 +49,7 @@ function App() {
         <option value="All">All</option>
         <option value="Dairy">Dairy</option>
         <option value="Bakery">Bakery</option>
-        <option value="Fruit">Fruit</option>
+        <option value="Fruits">Fruits</option>
       </select>
 
       <ProductList

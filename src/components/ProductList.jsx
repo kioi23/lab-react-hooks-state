@@ -2,6 +2,10 @@ import ProductCard from "./ProductCard";
 
 function ProductList({ products, handleAddToCart }) {
 
+  if (products.length === 0) {
+    return <p>No products available</p>;
+  }
+
   return (
     <div>
       {products.map((product) => (

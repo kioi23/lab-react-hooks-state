@@ -6,9 +6,12 @@ function ProductCard({ product, handleAddToCart }) {
       <h3>{product.name}</h3>
       <p>{product.category}</p>
 
-      <button onClick={() => handleAddToCart(product)}>
-        Add to Cart
-      </button>
+      <button
+  data-testid={`product-${product.id}`}
+  onClick={() => handleAddToCart(product)}
+>
+  Add to Cart
+</button>
     </div>
   );
 }
