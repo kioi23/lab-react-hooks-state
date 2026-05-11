@@ -15,12 +15,12 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   // Product data
-  const products = [
-    { id: 1, name: "Milk", category: "Dairy" },
-    { id: 2, name: "Bread", category: "Bakery" },
-    { id: 3, name: "Cheese", category: "Dairy" },
-    { id: 4, name: "Apple", category: "Fruits" }
-  ];
+  const sampleProducts = [
+  { id: 1, name: "Milk", category: "Dairy" },
+  { id: 2, name: "Bread", category: "Bakery" },
+  { id: 3, name: "Cheese", category: "Dairy" },
+  { id: 4, name: "Apple", category: "Fruits" }
+];
 
   // Add to cart function
   function handleAddToCart(product) {
@@ -29,11 +29,11 @@ function App() {
 
   // Filter products
   const filteredProducts =
-    selectedCategory === "All"
-      ? products
-      : products.filter(
-          (product) => product.category === selectedCategory
-        );
+  selectedCategory === "All"
+    ? sampleProducts
+    : sampleProducts.filter(
+        (product) => product.category === selectedCategory
+      );
 
   return (
     <div className={darkMode ? "dark" : "light"}>
@@ -53,9 +53,9 @@ function App() {
       </select>
 
       <ProductList
-        products={filteredProducts}
-        handleAddToCart={handleAddToCart}
-      />
+  products={filteredProducts}
+  onAddToCart={handleAddToCart}
+/>
 
       <Cart cartItems={cartItems} />
 
