@@ -9,7 +9,10 @@ function Cart({ cartItems }) {
         <p>Your cart is empty</p>
       ) : (
         cartItems.map((item) => (
-          <p key={item.id}>{item.name} is in your cart</p>
+          <p key={item.id}>
+            {item.name} is in your cart
+            {item.quantity > 1 ? ` (x${item.quantity})` : ""}
+          </p>
         ))
       )}
     </div>
